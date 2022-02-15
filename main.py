@@ -10,18 +10,24 @@ def find1(ingr):
     my_ingredients = ingr
     x = modules.search_by_ingredients(set(my_ingredients), data)
     print(x)
-    return res("res.html", x)
+    return x
+
 
 def find2(dish):
-    return "done"
+    print("done")
+
 
 @app.route('/', methods=['POST', 'GET'])
 def f_b_i():
     if request.method == "POST":
         f = request.form['ing']
         f = f.split(",")
-        find1(f)
-    return render_template("find_by_ingr.html")
+        URLS = find1(f)
+        print(URLS)
+        return render_template("res.html", URLS=URLS)
+    else:
+        return render_template("find_by_ingr.html")
+
 
 @app.route('/find_by_dish', methods=['POST', 'GET'])
 def f_b_d():
@@ -30,9 +36,10 @@ def f_b_d():
         print(f)
     return render_template("find_by_dish.html")
 
+
 @app.route("/res")
-def res(page, x):
-    return render_template("res.html", x)
+def res():
+    return render_template("res.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
