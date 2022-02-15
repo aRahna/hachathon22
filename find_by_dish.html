@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block text %}
+{{ super() }}
+Поиск<br><br>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div class="container">
+    <form action='' method="post" name="dish" class="needs-validation" novalidate>
+<!--text-->
+        <div class="row" align="center">
+            <div class="col">
+                <label for="dish">Хотите что-то приготовить, но кончились идеи?? <br>Мы вам подскажем!<br> Какие блюда вы хотите сделать?</label>
+
+                <select class="form-control" id="dish" name="dish" required="">
+                    <option value="">выбрать</option>
+                    <option value="osnovnye-blyuda">основные блюда</option>
+                    <option value="salaty">салаты</option>
+                    <option value="supy">супы</option>
+                    <option value="zavtraki">завтраки</option>
+                    <option value="pasta-picca">паста-пицца</option>
+                    <option value="sousy-marinady">соусы-маринады</option>
+                    <option value="vypechka-deserty">выпечка-дессерты</option>
+                    <option value="sendvichi">сендвичи</option>
+                    <option value="bulony">бульоны</option>
+                    <option value="zagotovki">заготовки</option>
+                    <option value="zakuski">закуски</option>
+
+                </select>
+                <div class="invalid-feedback">Обязательное поле</div>
+
+
+
+            </div>
+        </div>
+        <br><br>
+        <button class="btn btn-outline-dark btn-lg" type="submit">Найти</button>
+        <p>
+            Если не отправить, они пропадут при переходе!
+            <br>
+            Если вы отправили их, все поля должны были очиститься.
+        </p>
+    </form>
+
+</div>
+{% endblock %}

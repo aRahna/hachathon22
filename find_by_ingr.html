@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block text %}
+{{ super() }}
+Поиск<br><br>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div class="container">
+    <form action='' method="post" name="ing" class="needs-validation" novalidate>
+<!--text-->
+        <div class="row" align="center">
+            <div class="col">
+                <label for="ing">Хотите что-то приготовить, но кончились идеи?? <br>Мы вам подскажем!<br> Какие ингредиенты у вас есть? Пишите через запятую.</label>
+                <input id="ing" name="ing" type="text" class="form-control" placeholder="Укажите только названия" required="">
+                <div class="invalid-feedback">Обязательное поле</div>
+            </div>
+
+        </div>
+        <br><br>
+        <button class="btn btn-outline-dark btn-lg" type="submit">Найти</button>
+        <p>
+            Если не отправить, они пропадут при переходе!
+            <br>
+            Если вы отправили их, все поля должны были очиститься.
+        </p>
+    </form>
+
+</div>
+{% endblock %}
